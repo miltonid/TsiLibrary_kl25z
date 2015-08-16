@@ -12,7 +12,7 @@
 //-----------------------------------------------------------------------
 
 #include "tsi_kl25z.h"
-#include "main.h"
+#include "main.h"  //ksdk includes
 
 static tsi_state_t myTsiState;
 
@@ -42,7 +42,11 @@ static uint8_t tsiChn[BOARD_TSI_ELECTRODE_CNT];
 extern void TSI_DRV_IRQHandler(uint32_t instance);
 
 
-
+/** \fn initHwConfigTSI()
+ *  \brief Init the TSI setinghs for FRDM-KL25Z
+ *  \param void
+ *  \return void
+ */  
 void initHwConfigTSI(void){
 	uint32_t i;
 	tsi_status_t result; //variable for catch Tsi errors
@@ -75,7 +79,11 @@ void initHwConfigTSI(void){
 	}
 }
 
-
+/** \fn averageMeasurement(samples)
+ *  \brief Perform n samples and return the avg of ch9 and ch10
+ *  \param uint8_t
+ *  \return uint32_t
+ */ 
 uint32_t averageMeasurement(uint8_t samples){
 	uint16_t measureResult[BOARD_TSI_ELECTRODE_CNT];
 	tsi_status_t result; //variable for catch Tsi errors
