@@ -16,7 +16,9 @@
 
 static tsi_state_t myTsiState;
 
-// Set up the HW configuration for normal mode of TSI
+/** This structure contains the settings for the most common TSI configurations including the 
+*   TSI module charge currents, number of scans, thresholds etc
+*/
 static const tsi_config_t tsiHwConfig = {
 		.ps = kTsiElecOscPrescaler_2div, /*! Prescaler */
 		.extchrg = kTsiExtOscChargeCurrent_8uA, /*! Electrode charge current */
@@ -27,7 +29,10 @@ static const tsi_config_t tsiHwConfig = {
 		.thresl = 200, /*! Low byte of threshold. */
 };
 
-// Set up the configuration of initialization structure
+
+/** Use an instance of this structure with TSI_DRV_Init(). This allows you to configure the 
+*   most common settings of the TSI peripheral with a single function call 
+*/
 static const tsi_user_config_t tsiConfig = {
 		.config = (tsi_config_t*) &tsiHwConfig,
 		.pCallBackFunc = NULL,
