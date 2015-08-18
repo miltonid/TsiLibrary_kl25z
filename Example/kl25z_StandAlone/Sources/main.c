@@ -79,11 +79,8 @@
 
 int main(void)
 {
-	//uint16_t measureResult[BOARD_TSI_ELECTRODE_CNT];
-	//uint8_t tsiChn[BOARD_TSI_ELECTRODE_CNT];
 	uint32_t avgUntouch = 0; /*! Average TSI value of untouched state */
 	uint32_t avgMeasure;
-	//tsi_status_t result;
 
 
 
